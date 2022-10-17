@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020feast.proto.coreB\017JobServiceProtoZ3github.com/feast-dev/feast/sdk/go/protos/feast/core',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x66\x65\x61st/core/JobService.proto\x12\nfeast.core\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x66\x65\x61st/core/DataSource.proto\"\xeb\x03\n\x03Job\x12\n\n\x02id\x18\x01 \x01(\t\x12!\n\x04type\x18\x02 \x01(\x0e\x32\x13.feast.core.JobType\x12%\n\x06status\x18\x03 \x01(\x0e\x32\x15.feast.core.JobStatus\x12\x0c\n\x04hash\x18\x04 \x01(\t\x12.\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\tretrieval\x18\x06 \x01(\x0b\x32 .feast.core.Job.RetrievalJobMetaH\x00\x12>\n\x0f\x62\x61tch_ingestion\x18\x07 \x01(\x0b\x32#.feast.core.Job.OfflineToOnlineMetaH\x00\x12>\n\x10stream_ingestion\x18\x08 \x01(\x0b\x32\".feast.core.Job.StreamToOnlineMetaH\x00\x12\x0f\n\x07log_uri\x18\t \x01(\t\x1a+\n\x10RetrievalJobMeta\x12\x17\n\x0foutput_location\x18\x01 \x01(\t\x1a)\n\x13OfflineToOnlineMeta\x12\x12\n\ntable_name\x18\x01 \x01(\t\x1a(\n\x12StreamToOnlineMeta\x12\x12\n\ntable_name\x18\x01 \x01(\tB\x06\n\x04meta\"\xac\x01\n\'StartOfflineToOnlineIngestionJobRequest\x12\x0f\n\x07project\x18\x01 \x01(\t\x12\x12\n\ntable_name\x18\x02 \x01(\t\x12.\n\nstart_date\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_date\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x8f\x01\n(StartOfflineToOnlineIngestionJobResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ntable_name\x18\x03 \x01(\t\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"\xa4\x01\n\x1cGetHistoricalFeaturesRequest\x12\x14\n\x0c\x66\x65\x61ture_refs\x18\x01 \x03(\t\x12-\n\rentity_source\x18\x02 \x01(\x0b\x32\x16.feast.core.DataSource\x12\x0f\n\x07project\x18\x03 \x01(\t\x12\x17\n\x0foutput_location\x18\x04 \x01(\t\x12\x15\n\routput_format\x18\x05 \x01(\t\"\x89\x01\n\x1dGetHistoricalFeaturesResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x17\n\x0foutput_file_uri\x18\x02 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"M\n&StartStreamToOnlineIngestionJobRequest\x12\x0f\n\x07project\x18\x01 \x01(\t\x12\x12\n\ntable_name\x18\x02 \x01(\t\"\x8e\x01\n\'StartStreamToOnlineIngestionJobResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ntable_name\x18\x03 \x01(\t\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"A\n\x0fListJobsRequest\x12\x1a\n\x12include_terminated\x18\x01 \x01(\x08\x12\x12\n\ntable_name\x18\x02 \x01(\t\"1\n\x10ListJobsResponse\x12\x1d\n\x04jobs\x18\x01 \x03(\x0b\x32\x0f.feast.core.Job\"\x1f\n\rGetJobRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\".\n\x0eGetJobResponse\x12\x1c\n\x03job\x18\x01 \x01(\x0b\x32\x0f.feast.core.Job\"\"\n\x10\x43\x61ncelJobRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\"\x13\n\x11\x43\x61ncelJobResponse*`\n\x07JobType\x12\x0f\n\x0bINVALID_JOB\x10\x00\x12\x17\n\x13\x42\x41TCH_INGESTION_JOB\x10\x01\x12\x18\n\x14STREAM_INGESTION_JOB\x10\x02\x12\x11\n\rRETRIEVAL_JOB\x10\x04*~\n\tJobStatus\x12\x16\n\x12JOB_STATUS_INVALID\x10\x00\x12\x16\n\x12JOB_STATUS_PENDING\x10\x01\x12\x16\n\x12JOB_STATUS_RUNNING\x10\x02\x12\x13\n\x0fJOB_STATUS_DONE\x10\x03\x12\x14\n\x10JOB_STATUS_ERROR\x10\x04\x32\xe9\x04\n\nJobService\x12\x8d\x01\n StartOfflineToOnlineIngestionJob\x12\x33.feast.core.StartOfflineToOnlineIngestionJobRequest\x1a\x34.feast.core.StartOfflineToOnlineIngestionJobResponse\x12l\n\x15GetHistoricalFeatures\x12(.feast.core.GetHistoricalFeaturesRequest\x1a).feast.core.GetHistoricalFeaturesResponse\x12\x8a\x01\n\x1fStartStreamToOnlineIngestionJob\x12\x32.feast.core.StartStreamToOnlineIngestionJobRequest\x1a\x33.feast.core.StartStreamToOnlineIngestionJobResponse\x12\x45\n\x08ListJobs\x12\x1b.feast.core.ListJobsRequest\x1a\x1c.feast.core.ListJobsResponse\x12H\n\tCancelJob\x12\x1c.feast.core.CancelJobRequest\x1a\x1d.feast.core.CancelJobResponse\x12?\n\x06GetJob\x12\x19.feast.core.GetJobRequest\x1a\x1a.feast.core.GetJobResponseBX\n\x10\x66\x65\x61st.proto.coreB\x0fJobServiceProtoZ3github.com/feast-dev/feast/sdk/go/protos/feast/coreb\x06proto3'
+  serialized_pb=b'\n\x1b\x66\x65\x61st/core/JobService.proto\x12\nfeast.core\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x66\x65\x61st/core/DataSource.proto\"\xeb\x03\n\x03Job\x12\n\n\x02id\x18\x01 \x01(\t\x12!\n\x04type\x18\x02 \x01(\x0e\x32\x13.feast.core.JobType\x12%\n\x06status\x18\x03 \x01(\x0e\x32\x15.feast.core.JobStatus\x12\x0c\n\x04hash\x18\x04 \x01(\t\x12.\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\tretrieval\x18\x06 \x01(\x0b\x32 .feast.core.Job.RetrievalJobMetaH\x00\x12>\n\x0f\x62\x61tch_ingestion\x18\x07 \x01(\x0b\x32#.feast.core.Job.OfflineToOnlineMetaH\x00\x12>\n\x10stream_ingestion\x18\x08 \x01(\x0b\x32\".feast.core.Job.StreamToOnlineMetaH\x00\x12\x0f\n\x07log_uri\x18\t \x01(\t\x1a+\n\x10RetrievalJobMeta\x12\x17\n\x0foutput_location\x18\x01 \x01(\t\x1a)\n\x13OfflineToOnlineMeta\x12\x12\n\ntable_name\x18\x01 \x01(\t\x1a(\n\x12StreamToOnlineMeta\x12\x12\n\ntable_name\x18\x01 \x01(\tB\x06\n\x04meta\"\xc5\x01\n\'StartOfflineToOnlineIngestionJobRequest\x12\x0f\n\x07project\x18\x01 \x01(\t\x12\x12\n\ntable_name\x18\x02 \x01(\t\x12.\n\nstart_date\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_date\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0f\x64\x65lta_ingestion\x18\x05 \x01(\x08\"\x8f\x01\n(StartOfflineToOnlineIngestionJobResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ntable_name\x18\x03 \x01(\t\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"\xa4\x01\n\x1cGetHistoricalFeaturesRequest\x12\x14\n\x0c\x66\x65\x61ture_refs\x18\x01 \x03(\t\x12-\n\rentity_source\x18\x02 \x01(\x0b\x32\x16.feast.core.DataSource\x12\x0f\n\x07project\x18\x03 \x01(\t\x12\x17\n\x0foutput_location\x18\x04 \x01(\t\x12\x15\n\routput_format\x18\x05 \x01(\t\"\x89\x01\n\x1dGetHistoricalFeaturesResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x17\n\x0foutput_file_uri\x18\x02 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"M\n&StartStreamToOnlineIngestionJobRequest\x12\x0f\n\x07project\x18\x01 \x01(\t\x12\x12\n\ntable_name\x18\x02 \x01(\t\"\x8e\x01\n\'StartStreamToOnlineIngestionJobResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x32\n\x0ejob_start_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ntable_name\x18\x03 \x01(\t\x12\x0f\n\x07log_uri\x18\x04 \x01(\t\"A\n\x0fListJobsRequest\x12\x1a\n\x12include_terminated\x18\x01 \x01(\x08\x12\x12\n\ntable_name\x18\x02 \x01(\t\"1\n\x10ListJobsResponse\x12\x1d\n\x04jobs\x18\x01 \x03(\x0b\x32\x0f.feast.core.Job\"\x1f\n\rGetJobRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\".\n\x0eGetJobResponse\x12\x1c\n\x03job\x18\x01 \x01(\x0b\x32\x0f.feast.core.Job\"\"\n\x10\x43\x61ncelJobRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\"\x13\n\x11\x43\x61ncelJobResponse*`\n\x07JobType\x12\x0f\n\x0bINVALID_JOB\x10\x00\x12\x17\n\x13\x42\x41TCH_INGESTION_JOB\x10\x01\x12\x18\n\x14STREAM_INGESTION_JOB\x10\x02\x12\x11\n\rRETRIEVAL_JOB\x10\x04*~\n\tJobStatus\x12\x16\n\x12JOB_STATUS_INVALID\x10\x00\x12\x16\n\x12JOB_STATUS_PENDING\x10\x01\x12\x16\n\x12JOB_STATUS_RUNNING\x10\x02\x12\x13\n\x0fJOB_STATUS_DONE\x10\x03\x12\x14\n\x10JOB_STATUS_ERROR\x10\x04\x32\xe9\x04\n\nJobService\x12\x8d\x01\n StartOfflineToOnlineIngestionJob\x12\x33.feast.core.StartOfflineToOnlineIngestionJobRequest\x1a\x34.feast.core.StartOfflineToOnlineIngestionJobResponse\x12l\n\x15GetHistoricalFeatures\x12(.feast.core.GetHistoricalFeaturesRequest\x1a).feast.core.GetHistoricalFeaturesResponse\x12\x8a\x01\n\x1fStartStreamToOnlineIngestionJob\x12\x32.feast.core.StartStreamToOnlineIngestionJobRequest\x1a\x33.feast.core.StartStreamToOnlineIngestionJobResponse\x12\x45\n\x08ListJobs\x12\x1b.feast.core.ListJobsRequest\x1a\x1c.feast.core.ListJobsResponse\x12H\n\tCancelJob\x12\x1c.feast.core.CancelJobRequest\x1a\x1d.feast.core.CancelJobResponse\x12?\n\x06GetJob\x12\x19.feast.core.GetJobRequest\x1a\x1a.feast.core.GetJobResponseBX\n\x10\x66\x65\x61st.proto.coreB\x0fJobServiceProtoZ3github.com/feast-dev/feast/sdk/go/protos/feast/coreb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,feast_dot_core_dot_DataSource__pb2.DESCRIPTOR,])
 
@@ -56,8 +56,8 @@ _JOBTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1707,
-  serialized_end=1803,
+  serialized_start=1732,
+  serialized_end=1828,
 )
 _sym_db.RegisterEnumDescriptor(_JOBTYPE)
 
@@ -97,8 +97,8 @@ _JOBSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1805,
-  serialized_end=1931,
+  serialized_start=1830,
+  serialized_end=1956,
 )
 _sym_db.RegisterEnumDescriptor(_JOBSTATUS)
 
@@ -337,6 +337,13 @@ _STARTOFFLINETOONLINEINGESTIONJOBREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='delta_ingestion', full_name='feast.core.StartOfflineToOnlineIngestionJobRequest.delta_ingestion', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -350,7 +357,7 @@ _STARTOFFLINETOONLINEINGESTIONJOBREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=600,
-  serialized_end=772,
+  serialized_end=797,
 )
 
 
@@ -402,8 +409,8 @@ _STARTOFFLINETOONLINEINGESTIONJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=775,
-  serialized_end=918,
+  serialized_start=800,
+  serialized_end=943,
 )
 
 
@@ -462,8 +469,8 @@ _GETHISTORICALFEATURESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=921,
-  serialized_end=1085,
+  serialized_start=946,
+  serialized_end=1110,
 )
 
 
@@ -515,8 +522,8 @@ _GETHISTORICALFEATURESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1088,
-  serialized_end=1225,
+  serialized_start=1113,
+  serialized_end=1250,
 )
 
 
@@ -554,8 +561,8 @@ _STARTSTREAMTOONLINEINGESTIONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1227,
-  serialized_end=1304,
+  serialized_start=1252,
+  serialized_end=1329,
 )
 
 
@@ -607,8 +614,8 @@ _STARTSTREAMTOONLINEINGESTIONJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1307,
-  serialized_end=1449,
+  serialized_start=1332,
+  serialized_end=1474,
 )
 
 
@@ -646,8 +653,8 @@ _LISTJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1451,
-  serialized_end=1516,
+  serialized_start=1476,
+  serialized_end=1541,
 )
 
 
@@ -678,8 +685,8 @@ _LISTJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1518,
-  serialized_end=1567,
+  serialized_start=1543,
+  serialized_end=1592,
 )
 
 
@@ -710,8 +717,8 @@ _GETJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1569,
-  serialized_end=1600,
+  serialized_start=1594,
+  serialized_end=1625,
 )
 
 
@@ -742,8 +749,8 @@ _GETJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1602,
-  serialized_end=1648,
+  serialized_start=1627,
+  serialized_end=1673,
 )
 
 
@@ -774,8 +781,8 @@ _CANCELJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1650,
-  serialized_end=1684,
+  serialized_start=1675,
+  serialized_end=1709,
 )
 
 
@@ -799,8 +806,8 @@ _CANCELJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1686,
-  serialized_end=1705,
+  serialized_start=1711,
+  serialized_end=1730,
 )
 
 _JOB_RETRIEVALJOBMETA.containing_type = _JOB
@@ -971,8 +978,8 @@ _JOBSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1934,
-  serialized_end=2551,
+  serialized_start=1959,
+  serialized_end=2576,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartOfflineToOnlineIngestionJob',

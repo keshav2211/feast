@@ -1210,7 +1210,7 @@ class Client:
         return feature_tables
 
     def start_offline_to_online_ingestion(
-        self, feature_table: FeatureTable, start: datetime, end: datetime,
+        self, feature_table: FeatureTable, start: datetime, end: datetime, delta_ingestion: bool = False
     ) -> SparkJob:
         """
 
@@ -1219,6 +1219,7 @@ class Client:
         :param feature_table: FeatureTable which will be ingested
         :param start: lower datetime boundary
         :param end: upper datetime boundary
+        :param delta_ingestion: optional setting for delta ingestion
         :return: Spark Job Proxy object
         """
         if not self._use_job_service:
@@ -1231,7 +1232,7 @@ class Client:
             )
         else:
             request = StartOfflineToOnlineIngestionJobRequest(
-                project=self.project, table_name=feature_table.name,
+                project=self.project, table_name=feature_table.name, delta_ingestion=delta_ingestion
             )
             request.start_date.FromDatetime(start)
             request.end_date.FromDatetime(end)
