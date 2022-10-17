@@ -35,7 +35,7 @@ REQUIRED = [
     "grpcio==1.31.0",
     "pandas~=1.0.0",
     "pandavro==1.5.*",
-    "protobuf>=3.10",
+    "protobuf~=3.12",
     "PyYAML>=5.4.*",
     "fastavro>=0.22.11,<0.23",
     "tabulate==0.8.*",
